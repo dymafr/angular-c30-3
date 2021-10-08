@@ -20,14 +20,12 @@ describe('*** Auth selectors ***', () => {
       expect(stateSlice).toEqual(null);
     });
   });
-  describe('*** SelecCurrentUser ***', () => {
-    it('-> should return user', () => {
-      const user = { name: 'Jean', email: 'jean@gmail.com' };
-      const initialAuthState = AuthReducer.AUTH_INTIAL_STATE;
-      const stateSlice = AuthSelectors.selectCurrentUser({
-        [AuthReducer.authStateKey]: { ...initialAuthState, user },
-      });
-      expect(stateSlice).toEqual(user);
+  it('-> should return user', () => {
+    const user = { name: 'Jean', email: 'jean@gmail.com' };
+    const initialAuthState = AuthReducer.AUTH_INTIAL_STATE;
+    const stateSlice = AuthSelectors.selectCurrentUser({
+      [AuthReducer.authStateKey]: { ...initialAuthState, user },
     });
+    expect(stateSlice).toEqual(user);
   });
 });
